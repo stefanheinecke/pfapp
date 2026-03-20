@@ -1,0 +1,6 @@
+fastapi
+uvicorn
+psycopg2
+pandas
+yfinance
+python-multipart
