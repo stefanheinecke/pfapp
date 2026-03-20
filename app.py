@@ -4,8 +4,6 @@ import psycopg2.extras
 import pandas as pd
 from datetime import datetime, date, timedelta
 from fastapi import FastAPI
-from fastapi.staticfiles import StaticFiles
-from fastapi.responses import FileResponse
 from pydantic import BaseModel
 from typing import List
 import yfinance as yf
@@ -122,14 +120,6 @@ def compute_portfolio(rows, weights):
 # ---------------------------
 
 app = FastAPI()
-
-# Serve static frontend (modern HTML + JS)
-app.mount("/static", StaticFiles(directory="static"), name="static")
-
-
-@app.get("/")
-async def index():
-    return FileResponse("static/index.html")
 
 
 class Item(BaseModel):
